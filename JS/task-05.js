@@ -1,20 +1,37 @@
-// Дополни код присвоив объявленным переменным выражения обращения к соответствующим свойствам обьекта apartment используя синтаксис «квадратных скобок».
+// Выполни рефакторинг методов объекта pizzaPalace, расставив отсутствующие this в местах обращения к свойствам и методам объекта.
 
-// aptRating - рейтинг;
-// aptDescr - описание;
-// aptPrice - цена;
-// aptTags - теги.
-const apartment = {
-    imgUrl: "https://via.placeholder.com/640x480",
-    descr: "Spacious apartment in the city center",
-    rating: 4,
-    price: 2153,
-    tags: ["premium", "promoted", "top"],
-  };
-  
-  // Change code below this line
-  const aptRating = apartment["rating"];
-  const aptDescr = apartment["descr"];
-  const aptPrice = apartment["price"];
-  const aptTags = apartment["tags"];
-  // Change code above this line
+// const pizzaPalace = {
+//   pizzas: ['Ультрасыр', 'Аль Копчино', 'Четыре нарезона'],
+//   // Пиши код ниже этой строки
+//   checkPizza(pizzaName) {
+//     return pizzas.includes(pizzaName);
+//   },
+//   order(pizzaName) {
+//     const isPizzaAvailable = checkPizza(pizzaName);
+
+//     if (!isPizzaAvailable) {
+//       return `В ассортименте нет пиццы с названием «${pizzaName}».`;
+//     }
+
+//     return `Заказ принят, готовим пиццу «${pizzaName}».`;
+//   },
+//   // Пиши код выше этой строки
+// };
+
+const pizzaPalace = {
+  pizzas: ['Ультрасыр', 'Аль Копчино', 'Четыре нарезона'],
+  // Пиши код ниже этой строки
+  checkPizza(pizzaName) {
+    return this.pizzas.includes(pizzaName);
+  },
+  order(pizzaName) {
+    const isPizzaAvailable = this.checkPizza(pizzaName);
+
+    if (!isPizzaAvailable) {
+      return `В ассортименте нет пиццы с названием «${pizzaName}».`;
+    }
+
+    return `Заказ принят, готовим пиццу «${pizzaName}».`;
+  },
+  // Пиши код выше этой строки
+};

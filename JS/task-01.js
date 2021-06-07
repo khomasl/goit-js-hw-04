@@ -1,14 +1,9 @@
-// Присвой переменной apartment объект описывающий квартиру со следующими характеристиками:
+// Дополни код так, чтобы в переменной result был результат выполнения функции makePizza, а в переменной pointer была ссылка на функцию makePizza.
 
-// imgUrl - фотография, значение "https://via.placeholder.com/640x480";
-// descr - описание, значение "Spacious apartment in the city center";
-// rating - рейтинг, значение 4;
-// price - цена, значение 2153;
-// tags - метаинформация, массив ["premium", "promoted", "top"].
-const apartment = {
-  imgUrl: "https://via.placeholder.com/640x480",
-  descr: "Spacious apartment in the city center",
-  rating: 4,
-  price: 2153,
-  tags: ["premium", "promoted", "top"],
-};
+function makePizza() {
+  return 'Ваша пицца готовится, ожидайте.';
+}
+// Пиши код ниже этой строки
+
+const result = makePizza();
+const pointer = makePizza;

@@ -1,24 +1,65 @@
-// Дополни код обновив значения свойств объекта apartment:
+// Перед увольнением разработчик сломал исходный код управления аккаунтами пользователей нашего сервиса доставки еды. Выполни рефакторинг методов объекта customer, расставив отсутствующие this при обращении к свойствам объекта.
 
-// цену в свойстве price на 5000;
-// рейтинг квартиры в свойстве rating на 4.7;
-// имя владельца во вложенном свойстве name на "Henry Sibola";
-// массив тегов в свойстве tags добавив в конец строку "trusted".
-const apartment = {
-    imgUrl: "https://via.placeholder.com/640x480",
-    descr: "Spacious apartment in the city center",
-    rating: 4,
-    price: 2153,
-    tags: ["premium", "promoted", "top"],
-    owner: {
-      name: "Henry",
-      phone: "982-126-1588",
-      email: "henry.carter@aptmail.com",
-    },
-  };
-  
-  // Change code below this line
-  apartment.price = 5000;
-  apartment.rating = 4.7;
-  apartment.owner.name = "Henry Sibola";
-  apartment.tags.push("trusted");
+// После объявления объекта мы добавили вызовы методов в той последовательности, в которой твой код будут проверять тесты. Пожалуйста ничего там не меняй.
+
+// const customer = {
+//   username: 'Mango',
+//   balance: 24000,
+//   discount: 0.1,
+//   orders: ['Burger', 'Pizza', 'Salad'],
+//   // Пиши код ниже этой строки
+//   getBalance() {
+//     return balance;
+//   },
+//   getDiscount() {
+//     return discount;
+//   },
+//   setDiscount(value) {
+//     discount = value;
+//   },
+//   getOrders() {
+//     return orders;
+//   },
+//   addOrder(cost, order) {
+//     balance -= cost - cost * discount;
+//     orders.push(order);
+//   },
+//   // Пиши код выше этой строки
+// };
+
+// customer.setDiscount(0.15);
+// console.log(customer.getDiscount()); // 0.15
+// customer.addOrder(5000, 'Steak');
+// console.log(customer.getBalance()); // 19750
+// console.log(customer.getOrders()); // ['Burger', 'Pizza', 'Salad', 'Steak']
+
+const customer = {
+  username: 'Mango',
+  balance: 24000,
+  discount: 0.1,
+  orders: ['Burger', 'Pizza', 'Salad'],
+  // Пиши код ниже этой строки
+  getBalance() {
+    return this.balance;
+  },
+  getDiscount() {
+    return this.discount;
+  },
+  setDiscount(value) {
+    this.discount = value;
+  },
+  getOrders() {
+    return this.orders;
+  },
+  addOrder(cost, order) {
+    this.balance -= cost - cost * this.discount;
+    this.orders.push(order);
+  },
+  // Пиши код выше этой строки
+};
+
+customer.setDiscount(0.15);
+console.log(customer.getDiscount()); // 0.15
+customer.addOrder(5000, 'Steak');
+console.log(customer.getBalance()); // 19750
+console.log(customer.getOrders()); // ['Burger', 'Pizza', 'Salad', 'Steak']

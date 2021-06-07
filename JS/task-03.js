@@ -1,20 +1,14 @@
-// Дополни код присвоив объявленным переменным выражения обращения к соответствующим свойствам обьекта apartment.
+// Дополни второй вызов функции makePizza(pizzaName, callback), передав вторым аргументом инлайн колбэк-функцию eatPizza(pizzaName), которая логирует строку 'Едим пиццу <имя пиццы>'.
+function makePizza(pizzaName, callback) {
+  console.log(`Пицца ${pizzaName} готовится, ожидайте...`);
+  callback(pizzaName);
+}
 
-// aptRating - рейтинг;
-// aptDescr - описание;
-// aptPrice - цена;
-// aptTags - теги.
-const apartment = {
-  imgUrl: "https://via.placeholder.com/640x480",
-  descr: "Spacious apartment in the city center",
-  rating: 4,
-  price: 2153,
-  tags: ["premium", "promoted", "top"],
-};
+makePizza('Роял гранд', function deliverPizza(pizzaName) {
+  console.log(`Доставляем пиццу ${pizzaName}.`);
+});
+// Пиши код ниже этой строки
 
-// Change code below this line
-const aptRating = apartment.rating;
-const aptDescr = apartment.descr;
-const aptPrice = apartment.price;
-const aptTags = apartment.tags;
-// Change code above this line
+makePizza('Ультрасыр', function deliverPizza(pizzaName) {
+  console.log(`Едим пиццу ${pizzaName}.`);
+});

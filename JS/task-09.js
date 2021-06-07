@@ -1,12 +1,40 @@
-// Дополни код объявления объекта credentials так, чтобы в результате у него были два свойства: email и password, имена которых хранятся в переменных emailInputName и passwordInputName.
+// Функция composeMessage(customerName) создаёт приветственные сообщения для ресторанов. Дополни код так, чтобы в переменных pizzaPalaceComposer и burgerShackComposer были её копии с привязанным контекстом к соответствующим объектам.
 
-// Значением свойства email должна быть строка "henry.carter@aptmail.com", а значением свойства password - строка "jqueryismyjam".
-const emailInputName = 'email';
-const passwordInputName = 'password';
+// const pizzaPalace = {
+//   company: 'Pizza Palace',
+// };
 
-const credentials = {
-  // Change code below this line
-  [emailInputName]: "henry.carter@aptmail.com",
-  [passwordInputName]: "jqueryismyjam"
-  // Change code above this line
+// const burgerShack = {
+//   company: 'Burger Shack',
+// };
+
+// function composeMessage(customerName) {
+//   return `${customerName}, всегда рады вас видеть в «${this.company}».`;
+// }
+// // Пиши код ниже этой строки
+
+// const pizzaPalaceComposer = composeMessage;
+// const pizzaPalaceMessage = pizzaPalaceComposer('Манго');
+
+// const burgerShackComposer = composeMessage;
+// const burgerShackMessage = burgerShackComposer('Поли');
+
+const pizzaPalace = {
+  company: 'Pizza Palace',
 };
+
+const burgerShack = {
+  company: 'Burger Shack',
+};
+
+function composeMessage(customerName) {
+  return `${customerName}, всегда рады вас видеть в «${this.company}».`;
+}
+// Пиши код ниже этой строки
+
+const pizzaPalaceComposer = composeMessage.bind(pizzaPalace);
+const pizzaPalaceMessage = pizzaPalaceComposer('Манго');
+
+const burgerShackComposer = composeMessage.bind(burgerShack);
+const burgerShackMessage = burgerShackComposer('Поли');
+

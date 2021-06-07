@@ -1,29 +1,59 @@
-// Дополни код присвоив объявленным переменным выражения обращения к соответствующим свойствам обьекта apartment.
+// // Необходимо написать логику обработки заказа пиццы. Выполни рефакторинг метода order так, чтобы он принимал вторым и третим параметрами два колбэка onSuccess и onError.
 
-// ownerName - имя владельца;
-// ownerPhone - телефон владельца;
-// ownerEmail - почта владельца;
-// numberOfTags - количество элементов массива в свойстве tags;
-// firstTag - первый элемент массива в свойстве tags;
-// lastTag - последний элемент массива в свойстве tags.
-const apartment = {
-    imgUrl: "https://via.placeholder.com/640x480",
-    descr: "Spacious apartment in the city center",
-    rating: 4,
-    price: 2153,
-    tags: ["premium", "promoted", "top"],
-    owner: {
-      name: "Henry",
-      phone: "982-126-1588",
-      email: "henry.carter@aptmail.com",
-    },
-  };
-  
-  // Change code below this line
-  const ownerName = apartment.owner.name;
-  const ownerPhone = apartment.owner.phone;
-  const ownerEmail = apartment.owner.email;
-  const numberOfTags = apartment.tags.length;
-  const firstTag = apartment.tags[0];
-  const lastTag = apartment.tags[numberOfTags - 1];
-  // Change code above this line
+// // Если в свойстве pizzas нет пиццы с названием из параметра pizzaName, метод order должен возвращать результат вызова колбэка onError, передавая ему аргументом строку 'В ассортименте нет пиццы с названием <имя пиццы>.'
+// // Если в свойстве pizzas есть пицца с названием из параметра pizzaName, метод order должен возвращать результат вызова колбэка onSuccess, передавая ему аргументом имя заказанной пиццы.
+// // После объявления объекта pizzaPalace мы добавили колбэки и вызовы методов. Пожалуйста ничего там не меняй.
+
+// const pizzaPalace = {
+//   pizzas: ['Ультрасыр', 'Аль Копчино', 'Четыре нарезона'],
+//   order(pizzaName) {},
+// };
+// // Пиши код выше этой строки
+
+// // Колбэк для onSuccess
+// function makePizza(pizzaName) {
+//   return `Ваш заказ принят. Готовим пиццу ${pizzaName}.`;
+// }
+
+// // Колбэк для onError
+// function onOrderError(error) {
+//   return `Ошибка! ${error}`;
+// }
+
+// // Вызовы метода с колбэками
+// pizzaPalace.order('Аль Копчино', makePizza, onOrderError);
+// pizzaPalace.order('Четыре нарезона', makePizza, onOrderError);
+// pizzaPalace.order('Биг майк', makePizza, onOrderError);
+// pizzaPalace.order('Венская', makePizza, onOrderError);
+
+const pizzaPalace = {
+  pizzas: ['Ультрасыр', 'Аль Копчино', 'Четыре нарезона'],
+  order(pizzaName, onSuccess, onError) {
+    //console.log('this.pizzas.includes(pizzaName) :>> ', this.pizzas.includes(pizzaName));
+    if(this.pizzas.includes(pizzaName)){
+    	return onSuccess(pizzaName)
+    }
+    return onError(`В ассортименте нет пиццы с названием ${pizzaName}.`)
+  },
+}
+// Пиши код выше этой строки
+
+// Колбэк для onSuccess
+function makePizza(pizzaName) {
+  //console.log('ok :>> ');
+  return `Ваш заказ принят. Готовим пиццу ${pizzaName}.`;
+}
+
+// Колбэк для onError
+function onOrderError(error) {
+  //console.log('err :>> ');
+  return `Ошибка! ${error}`;
+}
+
+// Вызовы метода с колбэками
+// pizzaPalace.order('Аль Копчино', makePizza, onOrderError);
+// pizzaPalace.order('Четыре нарезона', makePizza, onOrderError);
+// pizzaPalace.order('Биг майк', makePizza, onOrderError);
+// pizzaPalace.order('Венская', makePizza, onOrderError);
+
+//console.log('Биг майк :>> ', pizzaPalace.order('Биг майк', makePizza, onOrderError));
